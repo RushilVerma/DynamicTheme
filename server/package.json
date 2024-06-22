@@ -12,7 +12,7 @@
     },
     "scripts": {
         "start": "node app.js",
-        "test": "nodemon ./app.js localhost 5000"
+        "test": "nodemon ./app.js"
     },
     "devDependencies": {
         "nodemon": "^3.1.4"

@@ -16,6 +16,7 @@ function ImageUpload({ setImage }) {
         .then(response => {
           const imageURL = URL.createObjectURL(file);
           setImage(imageURL);
+          console.log(`[RESPONSE] ${JSON.stringify(response.data)}`)
         })
         .catch(error => console.error('Error uploading image:', error));
     }
