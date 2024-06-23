@@ -2,22 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ImageUpload from './ImageUpload';
 import './SideBar.css';
-import TrendBox from './TrendBox';
 
 function SideBar({ setImage }) {
-  const [trends, setTrends] = useState([]);
   const [images, setImages] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    fetchTrends();
     fetchImages();
   }, []);
-
-  const fetchTrends = () => {
-    axios.get('http://localhost:5000/api/trends')
-    .then(response => setTrends(response.data))
-    .catch(error => console.error('Error fetching trends:', error));
-  }
 
   const fetchImages = () => {
     axios.get('http://localhost:5000/api/content')
@@ -31,13 +23,17 @@ function SideBar({ setImage }) {
       .catch(error => console.error('Error deleting image:', error));
   };
 
+  const handleSelect = (image) => {
+    setSelectedImage(image);
+    setImage(image);  // Assuming this sets the image in some parent component or state
+  };
+
   return (
     <div className="SideBar">
-      
-      <TrendBox trends={trends} />
       <h2>Upload</h2>
       <ImageUpload setImage={setImage} />
       <h2>Gallery</h2>
+      <button onClick={fetchImages} className="refreshButton">Refresh Gallery</button>
       <div className="Gallery">
         {images.map(image => (
           <div key={image._id} className="ImageWrapper">
@@ -46,8 +42,10 @@ function SideBar({ setImage }) {
                 new Uint8Array(image.image.data.data).reduce((data, byte) => data + String.fromCharCode(byte), '')
               )}`} 
               alt="Uploaded" 
+              className={selectedImage && selectedImage._id === image._id ? 'selected' : ''}
             />
-            <button onClick={() => handleDelete(image._id)}>Delete</button>
+            <button className="MarginButton" onClick={() => handleDelete(image._id)}>Delete</button>
+            <button className="MarginButton" onClick={() => handleSelect(image)}>Select Photo</button>
           </div>
         ))}
       </div>

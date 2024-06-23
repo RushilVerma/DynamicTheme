@@ -27,3 +27,16 @@
   padding: 5px;
   cursor: pointer;
 }
+
+.refreshButton {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.MarginButton {
+  margin: 1px;
+}
