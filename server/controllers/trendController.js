@@ -1,9 +1,13 @@
 const Trend = require('../models/trendModel');
-const axios = require('axios');
 
 const fetchTrends = async (req, res) => {
-  // Dummy implementation: Replace this with actual trend fetching logic
-  const trends = await Trend.find();
+  const trends = [
+    { tag: 'Summer', type: 'season' },
+    { tag: 'USA', type: 'country' },
+    { tag: 'Christmas', type: 'festival' },
+    { tag: 'English', type: 'language' }
+  ];
+
   res.json(trends);
 };
 

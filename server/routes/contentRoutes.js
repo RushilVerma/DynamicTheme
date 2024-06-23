@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { upload, uploadImage, fetchImage } = require('../controllers/contentController');
+const { upload, uploadImage, fetchImages, deleteImage } = require('../controllers/contentController');
 
 router.post('/upload', upload.single('image'), uploadImage);
-router.get('/:id', fetchImage);
+router.get('/', fetchImages);
+router.delete('/:id', deleteImage);
 
 module.exports = router;

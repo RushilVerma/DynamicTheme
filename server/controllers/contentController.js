@@ -17,10 +17,16 @@ const uploadImage = (req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 };
 
-const fetchImage = (req, res) => {
-  Content.findById(req.params.id)
-    .then(content => res.json(content))
+const fetchImages = (req, res) => {
+  Content.find()
+    .then(images => res.json(images))
     .catch(err => res.status(400).json('Error: ' + err));
 };
 
-module.exports = { upload, uploadImage, fetchImage };
+const deleteImage = (req, res) => {
+  Content.findByIdAndDelete(req.params.id)
+    .then(() => res.json({ message: 'Image deleted successfully' }))
+    .catch(err => res.status(400).json('Error: ' + err));
+};
+
+module.exports = { upload, uploadImage, fetchImages, deleteImage };

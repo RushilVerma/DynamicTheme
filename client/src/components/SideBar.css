@@ -1,6 +1,29 @@
 .SideBar {
-    background-color: #f4f4f4;
-    padding: 20px;
-    width: 250px;
-  }
-  
+  background-color: #f4f4f4;
+  padding: 20px;
+  width: 250px;
+}
+
+.Gallery {
+  display: flex;
+  flex-direction: column;
+}
+
+.ImageWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ImageWrapper img {
+  max-width: 100px;
+  margin-right: 10px;
+}
+
+.ImageWrapper button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
