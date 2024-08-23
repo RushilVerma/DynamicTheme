@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ImageUpload from './ImageUpload';
 import './SideBar.css';
+import TrendBox from './TrendBox';
 
 function SideBar({ setImage }) {
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [tags, setTags] = useState('');
 
   useEffect(() => {
     fetchImages();
@@ -30,6 +32,7 @@ function SideBar({ setImage }) {
 
   return (
     <div className="SideBar">
+      <TrendBox/>
       <h2>Upload</h2>
       <ImageUpload setImage={setImage} />
       <h2>Gallery</h2>

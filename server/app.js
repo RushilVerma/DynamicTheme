@@ -5,6 +5,7 @@ require('dotenv').config({ path: '../.env' });
 
 const contentRoutes = require('./routes/contentRoutes');
 const trendRoutes = require('./routes/trendRoutes');
+const imageRoutes = require('./routes/imageRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 app.use('/api/content', contentRoutes);
 app.use('/api/trends', trendRoutes);
+app.use('/api/image', imageRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
