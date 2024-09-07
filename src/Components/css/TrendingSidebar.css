@@ -1,0 +1,17 @@
+.sidebar-container {
+    padding: 10px;
+  }
+  
+  .search-card {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-card:hover {
+    background-color: #d0d0d0;
+  }
+  

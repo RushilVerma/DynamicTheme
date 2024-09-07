@@ -1,0 +1,47 @@
+.detail-view {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  
+  .detail-view h1 {
+    margin-bottom: 10px;
+  }
+  
+  .detail-view h3 {
+    margin-top: 20px;
+  }
+  
+  .detail-view ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .detail-view ul li {
+    margin-bottom: 5px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+  
+  .loading {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #007bff;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+  }
+  
+  .image-box {
+    margin-top: 20px;
+  }
+  
+  .image-box img {
+    max-width: 100%;
+    height: auto;
+  }
